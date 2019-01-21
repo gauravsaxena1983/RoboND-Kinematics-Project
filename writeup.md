@@ -23,7 +23,7 @@ j4 | 0.96 | 0 | -0.054
 j5 | 0.54 | 0 | 0
 j6 | 0.193 | 0 | 0
 
-![joint digram][[joint_digram_from_kr210_urdf_file]]
+![joint digram][joint_digram_from_kr210_urdf_file]
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
