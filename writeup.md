@@ -3,6 +3,7 @@
 [//]: # (Image References)
 
 [joint_digram_from_kr210_urdf_file]: ./misc_images/joint_digram_from_kr210_urdf_file.jpg
+[l01-16-l-denavit-hartenberg-parameter-definitions-01]: ./misc_images/l01-16-l-denavit-hartenberg-parameter-definitions-01.png
 [frame]: ./misc_images/frame.jpg
 [image3]: ./misc_images/misc2.png
 
@@ -31,7 +32,7 @@ j6 | 0.193 | 0 | 0
 
 As discussed in Lesson 14:12 we will be creating the Denavit-Hartenberg table using the convention described by John J Craig's. 
 
-
+![denavit hartenberg parameter definitions][l01-16-l-denavit-hartenberg-parameter-definitions-01]
 The parameter names and definitions are summarized as follows:
 
 alpha(i-1) = angle between Z(i-1) and Z(i) measured about X(i-1) in a right-hand sense.
