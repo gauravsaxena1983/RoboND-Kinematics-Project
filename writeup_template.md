@@ -6,7 +6,6 @@
 [image2]: ./misc_images/misc3.png
 [image3]: ./misc_images/misc2.png
 
----
 ### Writeup / README
 
 ### Kinematic Analysis
