@@ -15,6 +15,7 @@ Here is the table of joints x, y and z coordinates from KR210.urdf.xacro file.
 
 Join | x | y | z
 --- | --- | --- | ---
+j0 | 0 | 0 | 0
 j1 | 0 | 0 | 0.33
 j2 | 0.35 | 0 | 0.42
 j3 | 0 | 0 | 1.25
