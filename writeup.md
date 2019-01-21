@@ -11,9 +11,11 @@
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
-Here is the table of joints coordinates(x, y, z) from KR210.urdf.xacro file.
+
+Below is the digram and table of joints coordinates(x, y, z) taken from KR210.urdf.xacro file.
 
 ![joint digram][joint_digram_from_kr210_urdf_file]
+
 
 Join | x | y | z
 --- | --- | --- | ---
@@ -25,7 +27,14 @@ j4 | 0.96 | 0 | -0.054
 j5 | 0.54 | 0 | 0
 j6 | 0.193 | 0 | 0
 
-by looking at the joint coordinated from above and the origin frame from below image we got the following DH tabel.
+
+
+As discussed in Lesson 14:12 we will be creating the Denavit-Hartenberg table using the convention described by John J Craig's. 
+The parameter names and definitions are summarized as follows:
+alpha(i-1) = angle between Z(i-1) and Z(i) measured about X(i-1) in a right-hand sense.
+a(i−1) (link length) = distance from Z(i-1) to Z(i) measured along X(i−1) where X(i−1) is perpendicular to both Z(i−1) to Z(i)
+d(i)(link offset) = signed distance from X(i−1) to X(i) measured along Z(i). Note that this quantity will be a variable in the case of prismatic joints.
+theta(i)(joint angle) = angle between X(i−1) to X(i) measured about Z(i) in a right-hand sense. Note that this quantity will be a variable in the case of a revolute joint.
 
 ![frame][frame]
 
