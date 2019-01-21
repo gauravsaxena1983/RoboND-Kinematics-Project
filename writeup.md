@@ -11,7 +11,16 @@
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
-Here is an example of how to include an image in your writeup.
+Here is the table of joints x, y and z coordinates from KR210.urdf.xacro file.
+
+Join | x | y | z
+--- | --- | --- | ---
+j1 | 0 | 0 | 0.33
+j2 | 0.35 | 0 | 0.42
+j3 | 0 | 0 | 1.25
+j4 | 0.96 | 0 | -0.054
+j5 | 0.54 | 0 | 0
+j6 | 0.193 | 0 | 0
 
 ![alt text][image1]
 
