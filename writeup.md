@@ -12,6 +12,13 @@
 [theta2-calculation]: ./misc_images/theta2-calculation.png
 [theta3-calculation]: ./misc_images/theta3-calculation.png
 [theta4-5-6]: ./misc_images/theta4-5-6.png 
+
+[kuka-drop]: ./misc_images/kuka-drop.png 
+[kuka-grasp]: ./misc_images/kuka-grasp.png
+[kuka-retrive]: ./misc_images/kuka-retrive.png
+[kuka-tobin]: ./misc_images/kuka-tobin.png 
+
+
 ### Writeup / README
 
 ### Kinematic Analysis
@@ -177,6 +184,12 @@ theta6 = atan2(-R3_6[1,1], R3_6[1,0])
 
 
 Here I'll talk about the code, what techniques I used, what worked and why, where the implementation might fail and how I might improve it if I were going to pursue this project further.  
+
+Screenshot from pickup to drop
+1. ![kuka-retrive]
+2. ![kuka-grasp]
+3. ![kuka-tobin]
+4. ![kuka-drop]
 
 
 
