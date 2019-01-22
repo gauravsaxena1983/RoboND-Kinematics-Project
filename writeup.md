@@ -58,6 +58,18 @@ Links | alpha(i-1) | a(i-1) | d(i) | theta(i)
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
+First we define the DH table object in the code from the above table.
+```python
+DH_Table = { 	alpha0:		0, 		a0:	0, 	d1:	0.75, 	q1:	q1,
+		alpha1:		-pi/2.0,	a1:	0.35, 	d2:	0, 	q2:	-pi/2.0 + q2,
+		alpha2:		0,		a2:	1.25, 	d3:	0, 	q3:	q3,
+		alpha3:		-pi/2.0,	a3:	-0.054,	d4:	1.5, 	q4:	q4,
+		alpha4:		pi/2.0,		a4:	0, 	d5:	0, 	q5:	q5,
+		alpha5:		-pi/2.0,	a5:	0, 	d6:	0, 	q6:	q6,
+		alpha6:		0,		a6:	0, 	d7:	0.303, 	q7:	0}
+```
+
+Then after we define the combine rotation matrix as provided in the Lession 14:12
 ```python
 def TF_Matrix(alpha, a, d, q):
 	TF = Matrix(	[[	cos(q), 		-sin(q), 		0,		a],
@@ -67,6 +79,7 @@ def TF_Matrix(alpha, a, d, q):
 	return TF
 ```
 
+Then we apply the DH parameters on the DH object to get the individual tranformation matrix.
 ```python
 T0_1 = TF_Matrix(alpha0, a0, d1, q1).subs(DH_Table)
 T1_2 = TF_Matrix(alpha1, a1, d2, q2).subs(DH_Table)
@@ -77,8 +90,9 @@ T5_6 = TF_Matrix(alpha5, a5, d6, q6).subs(DH_Table)
 T6_EE = TF_Matrix(alpha6, a6, d7, q7).subs(DH_Table)
 ```
 
+Once we get all the individual transformation matrix we can compute the generalized homogeneous transform between base_link and gripper_link.
 ```python
- T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE 
+T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE 
 ```
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
