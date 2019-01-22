@@ -7,6 +7,7 @@
 [frame]: ./misc_images/frame.jpg
 [image3]: ./misc_images/misc2.png
 [frame_DH_param]: ./misc_images/frame_DH_param.jpg
+[Arm_top_side_view]: ./misc_images/Arm_top_side_view.jpg
 ### Writeup / README
 
 ### Kinematic Analysis
@@ -105,9 +106,11 @@ So we can break the solution in to two diffrent part:
 1. The Cartesian coordinates of the wrist center.
 2. The composition of rotations to orient the end effector. 
 
-And here's where you can draw out and show your math for the derivation of your theta angles. 
+Here's is the draw out for the wrist center in form of top view and side view. 
 
-![alt text][image2]
+![alt text][Arm_top_side_view]
+
+And to get the theta angles of the wrist center we can use below formula.  
 
 ### Project Implementation
 
