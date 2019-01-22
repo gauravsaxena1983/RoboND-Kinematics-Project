@@ -139,7 +139,7 @@ y = WCz - 0.75
 x = sqrt(pow(WCx,2) + pow(WCy,2) - 0.35)
 ```
 
-[theta2-calculation]
+![theta2-calculation]
 
 From these coordinates we can calcualte theta2 as 
 ```
