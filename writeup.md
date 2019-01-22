@@ -11,7 +11,7 @@
 [theta2-theta3]: ./misc_images/theta2-theta3.png
 [theta2-calculation]: ./misc_images/theta2-calculation.png
 [theta3-calculation]: ./misc_images/theta3-calculation.png
-[theta4-5-6] ./misc_images/theta4-5-6.png 
+[theta4-5-6]: ./misc_images/theta4-5-6.png 
 ### Writeup / README
 
 ### Kinematic Analysis
