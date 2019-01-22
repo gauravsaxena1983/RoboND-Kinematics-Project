@@ -9,6 +9,7 @@
 [frame_DH_param]: ./misc_images/frame_DH_param.jpg
 [Arm_top_side_view]: ./misc_images/Arm_top_side_view.jpg
 [theta2-theta3]: ./misc_images/theta2-theta3.png
+[theta2-calculation]: ./misc_images/theta2-calculation.png
 [theta3-calculation]: ./misc_images/theta3-calculation.png
 
 ### Writeup / README
@@ -137,6 +138,9 @@ Now we calculate the coordinates of joint 3 shown in the image above
 y = WCz - 0.75
 x = sqrt(pow(WCx,2) + pow(WCy,2) - 0.35)
 ```
+
+[theta2-calculation]
+
 From these coordinates we can calcualte theta2 as 
 ```
 theta2 = pi/2 - a - atan2(WCz - 0.75, sqrt(pow(WCx,2) + pow(WCy,2)) -0.35 
