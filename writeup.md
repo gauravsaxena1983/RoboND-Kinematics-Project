@@ -101,7 +101,9 @@ As discussed in Lesson 14:18 we need to use the "analytical" or "closed-form" so
 
 >Closed-form solutions are specific algebraic equation(s) that do not require iteration to solve and have two main advantages: generally they are much faster to solve than numerical approaches and it is easier to develop rules for which of the possible solutions is the appropriate one.
 
-So we can break the solution in to two diffrent part: first, the Cartesian coordinates of the wrist center, and then the composition of rotations to orient the end effector. 
+So we can break the solution in to two diffrent part: 
+1. The Cartesian coordinates of the wrist center.
+2. The composition of rotations to orient the end effector. 
 
 And here's where you can draw out and show your math for the derivation of your theta angles. 
 
