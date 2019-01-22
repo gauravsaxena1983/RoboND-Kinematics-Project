@@ -97,9 +97,11 @@ T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE
 
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
-Ad discussed in Lesson 14:18 we need to use the "analytical" or "closed-form" solution. 
+As discussed in Lesson 14:18 we need to use the "analytical" or "closed-form" solution as out robotic arm satisfy the "Three neighboring joint axes intersect at a single point" condition. 
 
 >Closed-form solutions are specific algebraic equation(s) that do not require iteration to solve and have two main advantages: generally they are much faster to solve than numerical approaches and it is easier to develop rules for which of the possible solutions is the appropriate one.
+
+So we can break the solution in to two diffrent part: first, the Cartesian coordinates of the wrist center, and then the composition of rotations to orient the end effector. 
 
 And here's where you can draw out and show your math for the derivation of your theta angles. 
 
