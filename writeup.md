@@ -8,6 +8,7 @@
 [image3]: ./misc_images/misc2.png
 [frame_DH_param]: ./misc_images/frame_DH_param.jpg
 [Arm_top_side_view]: ./misc_images/Arm_top_side_view.jpg
+[theta2-theta3]: ./misc_images/theta2-theta3.png
 ### Writeup / README
 
 ### Kinematic Analysis
@@ -110,7 +111,12 @@ Here's is the draw out for the wrist center in form of top view and side view.
 
 ![alt text][Arm_top_side_view]
 
-And to get the theta angles of the wrist center we can use below formula.  
+By looking at the projection in the above image we can calculate the theta angles of the wrist center using trigonometric.  
+1. theta1 = atan2(y, x)
+
+![theta2-theta3]
+2. theta2 = this is not strightforward we need to use the "Law of cosines" to calculate it 
+
 
 ### Project Implementation
 
