@@ -32,7 +32,6 @@ j6 | 0.193 | 0 | 0
 
 As discussed in Lesson 14:12 we will be creating the Denavit-Hartenberg table using the convention described by John J Craig's. 
 
-![denavit hartenberg parameter definitions][l01-16-l-denavit-hartenberg-parameter-definitions-01]
 The parameter names and definitions are summarized as follows:
 
 - alpha(i-1) = angle between Z(i-1) and Z(i) measured about X(i-1) in a right-hand sense.
@@ -43,7 +42,7 @@ The parameter names and definitions are summarized as follows:
 
 - theta(i)(joint angle) = angle between X(i−1) to X(i) measured about Z(i) in a right-hand sense. Note that this quantity will be a variable in the case of a revolute joint.
 
-![frame][frame]
+![frame DH param][frame_DH_param]
 
 Links | alpha(i-1) | a(i-1) | d(i) | theta(i)
 --- | --- | --- | --- | ---
@@ -55,7 +54,7 @@ Links | alpha(i-1) | a(i-1) | d(i) | theta(i)
 5->6 | -p1/2 | 0 | 0 | q6
 6->EE | 0 | 0 | 0.303 | 0
 
-![frame DH param][frame_DH_param]
+
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
