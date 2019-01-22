@@ -83,32 +83,41 @@ def handle_calculate_IK(req):
                 [req.poses[x].orientation.x, req.poses[x].orientation.y,
                     req.poses[x].orientation.z, req.poses[x].orientation.w])
 
-            ### Your IK code here
-	    # Compensate for rotation discrepancy between DH parameters and Gazebo
+        ### Your IK code here
+	    # declaring symbols for roll, pitch and yaw
 	    r, p , y = symbols('r p y')
 		
+		#rotation matrix for roll
 	    ROT_x = Matrix([[1,0,0],
 			[0, cos(r), -sin(r)],
 			[0,sin(r), cos(r)]]) # ROLL
 
+		#rotation matrix for pitch
 	    ROT_y = Matrix([[cos(p),0,sin(p)],
 			[0, 1, 0],
 			[-sin(p), 0, cos(p)]]) # PITCH
 
+		#rotation matrix for yaw
 	    ROT_z = Matrix([[cos(y),-sin(y), 0],
 			[sin(y), cos(y), 0],
 			[0, 0, 1]]) # YAW
 
+		#combine rotation matrix of end effactor 
 	    ROT_EE = ROT_z * ROT_y * ROT_x
 
+		#rotation error matrix used for correction
 	    ROT_Error = ROT_z.subs(y, radians(180)) * ROT_y.subs(p, radians(-90))
 
+		#creating a new combine rotation matrix of end effactor with error correction
 	    ROT_EE = ROT_EE * ROT_Error
 
+		#providing the roll pitch amn yaw values
 	    ROT_EE = ROT_EE.subs({'r': roll, 'p': pitch, 'y': yaw})
 
+		#end effactor position matrix
 	    EE = Matrix([[px], [py], [pz]])
 
+		#wrist center position matrix
 	    WC = EE - (0.303) * ROT_EE[:,2]
 
 	    
@@ -116,14 +125,17 @@ def handle_calculate_IK(req):
 	    theta1 = atan2(WC[1], WC[0])
 
 	    # SSS triangle for theta2 and theta3
-	    side_a = 1.501
+	    #calculate side length
+		side_a = 1.501 #sqrt(pow((0.96 + 0.54), 2) + pow(0.054, 2))
 	    side_b = sqrt(pow((sqrt(WC[0] * WC[0] + WC[1] * WC[1]) - 0.35), 2) + pow((WC[2] - 0.75), 2))
 	    side_c = 1.25
 
+		#calculating the needed angles of sss triangle
 	    angle_a = acos((side_b * side_b + side_c * side_c - side_a * side_a) / (2 * side_b * side_c))
 	    angle_b = acos((side_a * side_a + side_c * side_c - side_b * side_b) / (2 * side_a * side_c))
 	    #angle_c = acos((side_a * side_a + side_b * side_b - side_c * side_c) / (2 * side_a * side_b))
 
+		#calculating theta2 and theta3
 	    theta2 = pi / 2 - angle_a - atan2(WC[2] - 0.75, sqrt(WC[0] * WC[0] + WC[1] * WC[1]) - 0.35)
 	    theta3 = pi / 2 - (angle_b + 0.036)
 
