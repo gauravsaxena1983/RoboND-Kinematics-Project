@@ -111,12 +111,34 @@ Here's is the draw out for the wrist center in form of top view and side view.
 
 ![alt text][Arm_top_side_view]
 
-By looking at the projection in the above image we can calculate the theta angles of the wrist center using trigonometric.  
-1. theta1 = atan2(y, x)
+By looking at the projection in the above image we can calculate the theta angles of the wrist center.  
+theta1 = atan2(y, x)
 
+Before calculating theta2 and theta3 we need more details mentioned in the image below
 ![theta2-theta3]
-2. theta2 = this is not strightforward we need to use the "Law of cosines" to calculate it 
+We need to calculate side A, B and C length shown in the above image.
+```
+A = sqrt(pow((0.96 + 0.54), 2) + pow(0.054, 2)) = 1.501
+B = sqrt(pow(WCx,2) + pow(WCy,2) + pow((WCz-0.75),2)
+C = 1.25
+```
 
+Now we can caluculate the angles a, b and c using Cosine Laws as stated in the Lesson "Project: Robotic Arm: Pick and Place:15".
+```
+a = acos((pow(B) + pow(C) - pow(A))/ (2 x B x C))
+b = acos((pow(A) + pow(C) - pow(B))/ (2 x A x C))
+c = acos((pow(B) + pow(A) - pow(C))/ (2 x B x A))
+```
+
+Now we calculate the coordinates of point 3 shown in the image above 
+```
+y = WCz - 0.75
+x = sqrt(pow(WCx,2) + pow(WCy,2) - 0.35)
+```
+From these coordinates we can calcualte theta2 as 
+```
+theta2 = pi/2 - a - atan2(WCz - 0.75, sqrt(pow(WCx,2) + pow(WCy,2)) -0.35 
+```
 
 ### Project Implementation
 
