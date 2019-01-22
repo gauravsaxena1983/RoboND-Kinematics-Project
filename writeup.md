@@ -11,7 +11,7 @@
 [theta2-theta3]: ./misc_images/theta2-theta3.png
 [theta2-calculation]: ./misc_images/theta2-calculation.png
 [theta3-calculation]: ./misc_images/theta3-calculation.png
-
+[theta4-5-6] ./misc_images/theta4-5-6.png 
 ### Writeup / README
 
 ### Kinematic Analysis
@@ -160,7 +160,7 @@ We can calculate the remaining rotation matrix for 3 to 6 as:
 ```
 R3_6 = R0_3.transpose() * ROT_EE # where ROT_EE is the combined rotation matrix of the end effactor
 ```
-![theta4-5-6.png]
+![theta4-5-6]
 Now we can use the eular angle equations to get values for theta4, theta5 and theta6.
 ```
 theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
