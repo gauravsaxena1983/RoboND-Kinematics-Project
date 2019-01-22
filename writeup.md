@@ -54,6 +54,7 @@ Links | alpha(i-1) | a(i-1) | d(i) | theta(i)
 4->5 | pi/2 | 0 | 0 | q5
 5->6 | -p1/2 | 0 | 0 | q6
 6->EE | 0 | 0 | 0.303 | 0
+
 ![frame DH param][frame_DH_param]
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
