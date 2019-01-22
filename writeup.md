@@ -108,7 +108,6 @@ As discussed in Lesson 14:18 we need to use the "analytical" or "closed-form" so
 
 So we can break the solution in to two diffrent part: 
 1. The Cartesian coordinates of the wrist center.
-2. The composition of rotations to orient the end effector. 
 
 Here's is the draw out for the wrist center in form of top view and side view. 
 
@@ -151,7 +150,23 @@ As shown in the image above we can formulate the calculation of theta3
 theta3 = pi/2 - b - atan(0.054, 1.5)
 ```
 
-
+2. The composition of rotations to orient the end effector. 
+First we get the rotation matrix R0_3 from the transformation matrix and providing the theta1, theta2 and theta3 values.
+```
+R0_3 = T0_1[0:3,0:3] * T1_2[0:3,0:3] * T2_3[0:3,0:3]
+R0_3 = R0_3.evalf(subs={q1: theta1, q2: theta2, q3: theta3})
+```
+We can calculate the remaining rotation matrix for 3 to 6 as:
+```
+R3_6 = R0_3.transpose() * ROT_EE # where ROT_EE is the combined rotation matrix of the end effactor
+```
+![theta4-5-6.png]
+Now we can use the eular angle equations to get values for theta4, theta5 and theta6.
+```
+theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
+theta5 = atan2(sqrt(R3_6[0,2] * R3_6[0,2] + R3_6[2,2] * R3_6[2,2]), R3_6[1,2])
+theta6 = atan2(-R3_6[1,1], R3_6[1,0])
+```
 ### Project Implementation
 
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
@@ -160,7 +175,5 @@ theta3 = pi/2 - b - atan(0.054, 1.5)
 Here I'll talk about the code, what techniques I used, what worked and why, where the implementation might fail and how I might improve it if I were going to pursue this project further.  
 
 
-And just for fun, another example image:
-![alt text][image3]
 
 
