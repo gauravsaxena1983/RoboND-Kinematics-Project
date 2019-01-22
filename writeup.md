@@ -151,16 +151,20 @@ theta3 = pi/2 - b - atan(0.054, 1.5)
 ```
 
 2. The composition of rotations to orient the end effector. 
+
 First we get the rotation matrix R0_3 from the transformation matrix and providing the theta1, theta2 and theta3 values.
 ```
 R0_3 = T0_1[0:3,0:3] * T1_2[0:3,0:3] * T2_3[0:3,0:3]
 R0_3 = R0_3.evalf(subs={q1: theta1, q2: theta2, q3: theta3})
 ```
+
 We can calculate the remaining rotation matrix for 3 to 6 as:
 ```
 R3_6 = R0_3.transpose() * ROT_EE # where ROT_EE is the combined rotation matrix of the end effactor
 ```
+
 ![theta4-5-6]
+
 Now we can use the eular angle equations to get values for theta4, theta5 and theta6.
 ```
 theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
