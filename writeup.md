@@ -9,6 +9,8 @@
 [frame_DH_param]: ./misc_images/frame_DH_param.jpg
 [Arm_top_side_view]: ./misc_images/Arm_top_side_view.jpg
 [theta2-theta3]: ./misc_images/theta2-theta3.png
+[theta3-calculation]: ./misc_images/theta3-calculation.png
+
 ### Writeup / README
 
 ### Kinematic Analysis
@@ -139,8 +141,8 @@ From these coordinates we can calcualte theta2 as
 ```
 theta2 = pi/2 - a - atan2(WCz - 0.75, sqrt(pow(WCx,2) + pow(WCy,2)) -0.35 
 ```
-
-For theta3 we can calculate it as below 
+![theta3-calculation]
+As shown in the image above we can formulate the calculation of theta3
 ```
 theta3 = pi/2 - b - atan(0.054, 1.5)
 ```
