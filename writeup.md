@@ -130,7 +130,7 @@ b = acos((pow(A) + pow(C) - pow(B))/ (2 x A x C))
 c = acos((pow(B) + pow(A) - pow(C))/ (2 x B x A))
 ```
 
-Now we calculate the coordinates of point 3 shown in the image above 
+Now we calculate the coordinates of joint 3 shown in the image above 
 ```
 y = WCz - 0.75
 x = sqrt(pow(WCx,2) + pow(WCy,2) - 0.35)
@@ -139,6 +139,12 @@ From these coordinates we can calcualte theta2 as
 ```
 theta2 = pi/2 - a - atan2(WCz - 0.75, sqrt(pow(WCx,2) + pow(WCy,2)) -0.35 
 ```
+
+For theta3 we can calculate it as below 
+```
+theta3 = pi/2 - b - atan(0.054, 1.5)
+```
+
 
 ### Project Implementation
 
