@@ -294,7 +294,7 @@ One observation I found out that sometime the arm collides with the object its t
 
 As an improvement we can take this input as improvement when approaching the target object.
 
-Also we can pre compute the transformation matrix T#_# and store it in file and get that when needed stright from file insted of computing each time. This will save us computing and time.
+Also we can pre compute the transformation matrix T#_# and store it in file and get that when needed stright from file insted of computing each time. As DH parameters don't changes. This will save us computing power and time.
 
 Screenshot from pickup to drop
 1. ![kuka-retrive]
