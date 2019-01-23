@@ -228,8 +228,60 @@ else:
 
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
 
+```
+Test case 1 result by running file IK_debug.py 
+Total run time to calculate joint angles from pose is 0.8585 seconds
 
-Here I'll talk about the code, what techniques I used, what worked and why, where the implementation might fail and how I might improve it if I were going to pursue this project further.  
+Wrist error for x position is: 0.00000046
+Wrist error for y position is: 0.00000032
+Wrist error for z position is: 0.00000545
+Overall wrist offset is: 0.00000548 units
+
+Theta 1 error is: 0.00093770
+Theta 2 error is: 0.00181024
+Theta 3 error is: 0.00205031
+Theta 4 error is: 0.00172067
+Theta 5 error is: 0.00197873
+Theta 6 error is: 0.00251871
+
+**These theta errors may not be a correct representation of your code, due to the fact 		   
+that the arm can have muliple positions. It is best to add your forward kinmeatics to 		   
+confirm whether your code is working or not**
+ 
+
+End effector error for x position is: 0.00002010
+End effector error for y position is: 0.00001531
+End effector error for z position is: 0.00002660
+Overall end effector offset is: 0.00003668 units
+```
+
+```
+Test case 1 result by running file IK_debug.py 
+Total run time to calculate joint angles from pose is 0.8047 seconds
+
+Wrist error for x position is: 0.00002426
+Wrist error for y position is: 0.00000562
+Wrist error for z position is: 0.00006521
+Overall wrist offset is: 0.00006980 units
+
+Theta 1 error is: 3.14309971
+Theta 2 error is: 0.27930449
+Theta 3 error is: 1.86835102
+Theta 4 error is: 3.08639294
+Theta 5 error is: 0.06340564
+Theta 6 error is: 6.13524247
+
+**These theta errors may not be a correct representation of your code, due to the fact 		   
+that the arm can have muliple positions. It is best to add your forward kinmeatics to 		   
+confirm whether your code is working or not**
+ 
+
+End effector error for x position is: 0.00002566
+End effector error for y position is: 0.00002581
+End effector error for z position is: 0.00000461
+Overall end effector offset is: 0.00003668 units 
+
+```
 
 Screenshot from pickup to drop
 1. ![kuka-retrive]
