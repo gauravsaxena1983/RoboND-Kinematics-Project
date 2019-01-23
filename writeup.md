@@ -228,6 +228,9 @@ else:
 
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
 
+First I updated the IK_server.py file with the needed code. 
+Later I moved my code to IK_debug.py and check for errors in using FK calcutaion.  
+Below are some testcase results.
 ```
 Test case 1 result by running file IK_debug.py 
 Total run time to calculate joint angles from pose is 0.8585 seconds
@@ -282,6 +285,11 @@ End effector error for z position is: 0.00000461
 Overall end effector offset is: 0.00003668 units 
 
 ```
+
+This project was not easy to complete for me as I have to brush old concept like Vector, Matrix, Tignometry and learn new concepts. 
+Also I learned how to use python to do mathematical calcutaions without losing the precision by using sympy. 
+One observation I found out that sometime the arm collides with the object its trying pick up and topplesit. 
+As an improvement we can take this input as improvement when approaching the target object.
 
 Screenshot from pickup to drop
 1. ![kuka-retrive]
