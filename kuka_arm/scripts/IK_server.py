@@ -149,8 +149,8 @@ def handle_calculate_IK(req):
 	    
 	    #selecting between multiple solution
 	    if theta5 > pi :
-	        theta4 = atan2(-R3_6[2,2], -R3_6[0,2])	    
-		theta6 = atan2(R3_6[1,1], R3_6[1,0])
+	        theta4 = atan2(-R3_6[2,2], R3_6[0,2])	    
+		theta6 = atan2(R3_6[1,1], -R3_6[1,0])
 	    else:
 		theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
 		theta6 = atan2(-R3_6[1,1], R3_6[1,0])
