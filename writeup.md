@@ -156,7 +156,23 @@ As discussed in Lesson 14:18 we need to use the "analytical" or "closed-form" so
 >Closed-form solutions are specific algebraic equation(s) that do not require iteration to solve and have two main advantages: generally they are much faster to solve than numerical approaches and it is easier to develop rules for which of the possible solutions is the appropriate one.
 
 So we can break the solution in to two diffrent part: 
+
 1. The Cartesian coordinates of the wrist center.
+
+First get the transformation matrix for successive joins. 
+And at last the combined transformation matrix from base to end effactor.
+
+```
+T0_1 = TF_Matrix(alpha0, a0, d1, q1).subs(DH_Table)
+T1_2 = TF_Matrix(alpha1, a1, d2, q2).subs(DH_Table)
+T2_3 = TF_Matrix(alpha2, a2, d3, q3).subs(DH_Table)
+T3_4 = TF_Matrix(alpha3, a3, d4, q4).subs(DH_Table)
+T4_5 = TF_Matrix(alpha4, a4, d5, q5).subs(DH_Table)
+T5_6 = TF_Matrix(alpha5, a5, d6, q6).subs(DH_Table)
+T6_EE = TF_Matrix(alpha6, a6, d7, q7).subs(DH_Table)
+
+T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE 
+```
 
 Here's is the draw out for the wrist center in form of top view and side view. 
 
