@@ -145,9 +145,15 @@ def handle_calculate_IK(req):
 
 	    R3_6 = R0_3.transpose() * ROT_EE
 
-	    theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
 	    theta5 = atan2(sqrt(R3_6[0,2] * R3_6[0,2] + R3_6[2,2] * R3_6[2,2]), R3_6[1,2])
-	    theta6 = atan2(-R3_6[1,1], R3_6[1,0])
+	    
+	    #selecting between multiple solution
+	    if theta5 > pi :
+	        theta4 = atan2(-R3_6[2,2], -R3_6[0,2])	    
+		theta6 = atan2(R3_6[1,1], R3_6[1,0])
+	    else:
+		theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
+		theta6 = atan2(-R3_6[1,1], R3_6[1,0])
 
             ###
 
