@@ -107,6 +107,48 @@ Once we get all the individual transformation matrix we can compute the generali
 T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE 
 ```
 
+Now we compute the rotation matrix of EE with error correction. 
+By first calculating the indvidual rotation against each axis namly ROT_x, ROT_y and ROT_z. 
+Then computing the combined rotation matrix ROT_EE by doing a dot product of ROT_x, ROT_y and ROT_z. 
+Later we create a rotation error correction matrix ROT_Error and using this calcualte the correct ROT_EE.
+```
+#rotation matrix for roll
+ROT_x = Matrix([[1,0,0],
+	[0, cos(r), -sin(r)],
+	[0,sin(r), cos(r)]]) # ROLL
+
+#rotation matrix for pitch
+ROT_y = Matrix([[cos(p),0,sin(p)],
+	[0, 1, 0],
+	[-sin(p), 0, cos(p)]]) # PITCH
+
+#rotation matrix for yaw
+ROT_z = Matrix([[cos(y),-sin(y), 0],
+	[sin(y), cos(y), 0],
+	[0, 0, 1]]) # YAW
+
+#combine rotation matrix of end effactor 
+ROT_EE = ROT_z * ROT_y * ROT_x
+
+#rotation error matrix used for correction
+ROT_Error = ROT_z.subs(y, radians(180)) * ROT_y.subs(p, radians(-90))
+
+#creating a new combine rotation matrix of end effactor with error correction
+ROT_EE = ROT_EE * ROT_Error
+```
+
+Later we can use the transformation matrix to get the rotation matrix for WC
+```
+R0_3 = T0_1[0:3,0:3] * T1_2[0:3,0:3] * T2_3[0:3,0:3]
+R0_3 = R0_3.evalf(subs={q1: theta1, q2: theta2, q3: theta3})
+```
+
+And to calculate the rotation matrix  we do a dot product of inverse WC rotaion matrix R0_3 and rotation matrix of EE i.e. ROT_EE. 
+These matrix will be needed to calculate the theta angles of the joints.
+```
+R3_6 = R0_3.transpose() * ROT_EE
+```
+
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
 As discussed in Lesson 14:18 we need to use the "analytical" or "closed-form" solution as out robotic arm satisfy the "Three neighboring joint axes intersect at a single point" condition. 
