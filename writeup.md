@@ -214,11 +214,15 @@ R3_6 = R0_3.transpose() * ROT_EE # where ROT_EE is the combined rotation matrix 
 
 ![theta4-5-6]
 
-Now we can use the eular angle equations to get values for theta4, theta5 and theta6.
+Now we can use the eular angle equations to get values for theta4, theta5 and theta6. A special case exists for multiple solution when depending on value of theta5. 
 ```
-theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
 theta5 = atan2(sqrt(R3_6[0,2] * R3_6[0,2] + R3_6[2,2] * R3_6[2,2]), R3_6[1,2])
-theta6 = atan2(-R3_6[1,1], R3_6[1,0])
+if theta5 > pi :
+	theta4 = atan2(-R3_6[2,2], R3_6[0,2])	    
+	theta6 = atan2(R3_6[1,1], -R3_6[1,0])
+else:
+	theta4 = atan2(R3_6[2,2], -R3_6[0,2])	    
+	theta6 = atan2(-R3_6[1,1], R3_6[1,0])
 ```
 ### Project Implementation
 
