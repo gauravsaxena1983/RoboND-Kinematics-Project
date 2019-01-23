@@ -287,9 +287,13 @@ Overall end effector offset is: 0.00003668 units
 ```
 
 This project was not easy to complete for me as I have to brush old concept like Vector, Matrix, Tignometry and learn new concepts. 
+
 Also I learned how to use python to do mathematical calcutaions without losing the precision by using sympy. 
-One observation I found out that sometime the arm collides with the object its trying pick up and topplesit. 
+
+One observation I found out that sometime the arm collides with the object its trying pick up and topples it. 
+
 As an improvement we can take this input as improvement when approaching the target object.
+
 Also we can pre compute the transformation matrix T#_# and store it in file and get that when needed stright from file insted of computing each time. This will save us computing and time.
 
 Screenshot from pickup to drop
